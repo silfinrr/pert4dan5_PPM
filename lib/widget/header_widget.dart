@@ -19,71 +19,81 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [Colors.pinkAccent, Colors.cyan],
-          begin: .topStart,
-          end: .bottomEnd,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Row(
         children: [
           Stack(
             children: [
-              CircleAvatar(
-                radius: 100,
+              const CircleAvatar(
+                radius: 40,
                 backgroundImage: NetworkImage(
                   "https://picsum.photos/seed/picsum/200/300",
                 ),
               ),
               Positioned(
-                right: 3,
-                bottom: 0,
+                right: -5,
+                bottom: -5,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(999),
                     color: Colors.deepPurpleAccent,
                   ),
                   child: Text(
-                    'level 9999999999',
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontSize: 15,
-                      fontWeight: .bold,
+                    role,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 15),
           Expanded(
             child: Column(
-              crossAxisAlignment: .start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
-                  style: TextStyle(
-                    color: Colors.black26,
-                    fontWeight: .bold,
-                    fontSize: 16,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
-                Text("level anda : $level"),
+                const SizedBox(height: 4),
+                Text(
+                  "Level: $level",
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.blueAccent.withAlpha(20),
-              borderRadius: BorderRadius.circular(4),
+              color: Colors.white.withAlpha(50),
+              borderRadius: BorderRadius.circular(8),
             ),
-            child: Text(rank, style: GoogleFonts.bubblegumSans(
-              textStyle: TextStyle(fontSize: 32, color: Colors.amberAccent)
-            )),
+            child: Text(
+              rank,
+              style: GoogleFonts.bubblegumSans(
+                textStyle: const TextStyle(fontSize: 32, color: Colors.amberAccent)
+              )
+            ),
           )
         ],
       ),
